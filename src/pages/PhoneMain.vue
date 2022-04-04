@@ -12,8 +12,8 @@
     <div class="gauchepad">
       <h2>En tendance</h2>
       <div class="carouselle">
-        <CardCarouselle />
-        <CardCarouselle />
+        <CardCarouselle :class="{ mainimage: isActive }"/>
+        <CardCarouselle :class="{ mainimage: isActive }"/>
       </div>
     </div>
 
@@ -87,8 +87,7 @@ a {
 #HEADER {
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  width: 60%;
+  width: 100%;
   margin-left: auto;
   margin-bottom: 25px;
 }
@@ -96,6 +95,8 @@ a {
 #HEADER img {
   width: 75px;
   height: auto;
+  margin: 0 auto 0 auto;
+  padding-left:11px;
 }
 
 #BONJOUR {
@@ -116,7 +117,6 @@ a {
   font-size: 12px;
   font-weight: 400;
   font-style: italic;
-  margin-bottom: 30px;
 }
 
 h2 {

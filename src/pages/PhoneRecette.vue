@@ -2,23 +2,33 @@
   <div id="fond">
     <div class="pad">
       <div id="HEADER">
-        <router-link to="/"
+        <router-link to="/phonemain"
           ><img src="../assets/return.svg" alt="fleche retout" class="return"
         /></router-link>
         <img src="../assets/LOGO.svg" alt="Logo de Food & Drink's" />
         <PhotoProfile :class="{ petit: isActive }" />
       </div>
     </div>
+
+    <div class="imagegrande"></div>
+
+    <div class="carouselle">
+        <CardCarouselle :class="{ recetteimage: isActive }"/>
+    </div>
+
+
   </div>
 </template>
 
 <script>
 import PhotoProfile from "../components/PhotoProfile.vue";
+import CardCarouselle from "../components/CardCarouselle.vue";
 
 export default {
   name: "PhoneRecette",
   components: {
     PhotoProfile,
+    CardCarouselle,
   },
   data() {
     return {
@@ -35,7 +45,6 @@ export default {
 
 a {
   text-decoration: none;
-  /*TEST COMMIT*/
 }
 
 #fond {
@@ -55,14 +64,16 @@ a {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  width: 60%;
+  width: 100%;
   margin-left: auto;
-  margin-bottom: 25px;
 }
 
-#HEADER img {
+#HEADER > img {
   width: 75px;
   height: auto;
+}
+#HEADER img:nth-child(2) {
+margin:0 auto 0 auto;
 }
 
 #BONJOUR {

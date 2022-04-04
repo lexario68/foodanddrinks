@@ -13,23 +13,12 @@
 
 <script>
 export default {
-  name: "PhotoCarouselle",
-  props: {
-    taille: {
-      type: String,
-      default: "40px",
-    },
-  },
-  data() {
-    return {
-      isActive: true,
-    };
-  },
+  name: "CardCarouselle",
 };
 </script>
 
 <style scoped>
-a{
+a {
   text-decoration: none;
 }
 
@@ -40,20 +29,41 @@ a{
 .imageavant {
   margin-bottom: 15px;
   border-radius: 5px;
-  width: 250px;
-  min-width: 250px;
-  height: 150px;
   background-image: linear-gradient(rgb(10, 10, 10, 0.8), rgba(0, 0, 0, 0)),
     url(../assets/gauffre.jpg);
   background-size: cover;
 }
 
+.mainimage .imageavant {
+  width: 250px;
+  min-width: 250px;
+  height: 150px;
+}
+
+.recetteimage .imageavant {
+  width: 100vw;
+  min-width: 100vw;
+  height: 200px;
+}
+
 .desc {
   display: flex;
   justify-content: space-between;
-  font-size: 12px;
   font-weight: 700;
 }
+
+.mainimage .desc {
+  font-size: 12px;
+}
+.recetteimage .desc {
+  font-size: 18px;
+  padding:0 25px 0 25px;
+}
+
+.recetteimage .pro{
+  margin-left:25px;
+}
+
 .pro {
   font-size: 12px;
   font-weight: 300;
