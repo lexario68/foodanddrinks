@@ -13,10 +13,18 @@
     <div class="imagegrande"></div>
 
     <div class="carouselle">
-        <CardCarouselle :class="{ recetteimage: isActive }"/>
+      <CardCarouselle :class="{ recetteimage: isActive }" />
     </div>
 
-
+    <div class="pad">
+      <div class="biographie">
+        <PhotoProfile :class="{ petit: isActive }" />
+        <p>
+          Cette recette est idéal dans le cadre dolor sit amet, consectetur
+          adipiscing elit, sed labore et dolore magna aliqua.
+        </p>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -73,7 +81,7 @@ a {
   height: auto;
 }
 #HEADER img:nth-child(2) {
-margin:0 auto 0 auto;
+  margin: 0 auto 0 auto;
 }
 
 #BONJOUR {
@@ -106,5 +114,18 @@ h2 {
   display: flex;
   box-sizing: border-box;
   overflow: hidden;
+}
+
+.biographie {
+  display: flex;
+  font-weight: 300;
+  font-style: italic;
+  font-size: 12px;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.biographie > p {
+  width: 80%;
 }
 </style>

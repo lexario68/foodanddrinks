@@ -1,18 +1,29 @@
 <template>
   <router-link to="/phonerecette">
     <div class="boite">
-      <div class="imageavant"></div>
+     <!-- <div
+        class="imageavant"
+       :style="background-image: linear-gradient(rgb(10, 10, 10, 0.8), rgba(0, 0, 0, 0)),
+    url(reciepe+attributes+Image+data+attributes+formats+medium+url)"
+      </div>-->
       <div class="desc">
-        <div>Gauffre Tonic</div>
-        <div>*****</div>
+        <div>{{ reciepe.attributes.Name }}</div>
+        <div>
+          <span v-for="star in reciepe.attributes.Price" :key="star">⭐</span>
+        </div>
       </div>
-      <div class="pro">10' - 95 cal - €</div>
+      <div class="pro">10' - {{ reciepe.attributes.Energy }} cal - €</div>
     </div>
   </router-link>
 </template>
 
 <script>
 export default {
+  props: {
+    reciepe: {
+      type: Object,
+    },
+  },
   name: "CardCarouselle",
 };
 </script>
@@ -29,8 +40,6 @@ a {
 .imageavant {
   margin-bottom: 15px;
   border-radius: 5px;
-  background-image: linear-gradient(rgb(10, 10, 10, 0.8), rgba(0, 0, 0, 0)),
-    url(../assets/gauffre.jpg);
   background-size: cover;
 }
 
@@ -57,11 +66,11 @@ a {
 }
 .recetteimage .desc {
   font-size: 18px;
-  padding:0 25px 0 25px;
+  padding: 0 25px 0 25px;
 }
 
-.recetteimage .pro{
-  margin-left:25px;
+.recetteimage .pro {
+  margin-left: 25px;
 }
 
 .pro {

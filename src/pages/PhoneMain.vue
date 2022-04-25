@@ -12,8 +12,19 @@
     <div class="gauchepad">
       <h2>En tendance</h2>
       <div class="carouselle">
-        <CardCarouselle :class="{ mainimage: isActive }"/>
-        <CardCarouselle :class="{ mainimage: isActive }"/>
+        <CardCarouselle
+          v-for="reciepe in reciepes"
+          :key="reciepe.id"
+          :reciepe="reciepe"
+          :class="{ mainimage: isActive }"
+        />
+
+        <CardCarouselle
+          v-for="reciepe in reciepes"
+          :key="reciepe.id"
+          :reciepe="reciepe"
+          :class="{ mainimage: isActive }"
+        />
       </div>
     </div>
 
@@ -35,6 +46,7 @@
 </template>
 
 <script>
+import api from "@/plugins/axios";
 import PhotoProfile from "../components/PhotoProfile.vue";
 import CardCarouselle from "../components/CardCarouselle.vue";
 import CardCategorie from "../components/CardCategorie.vue";
@@ -57,7 +69,14 @@ export default {
   data() {
     return {
       isActive: true,
+      reciepes: [],
     };
+  },
+  mounted() {
+    api.get("reciepes?populate=*").then((response) => {
+      this.reciepes = response.data.data;
+      console.log(this.reciepes);
+    });
   },
 };
 </script>
@@ -96,7 +115,7 @@ a {
   width: 75px;
   height: auto;
   margin: 0 auto 0 auto;
-  padding-left:11px;
+  padding-left: 11px;
 }
 
 #BONJOUR {
