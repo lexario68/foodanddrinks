@@ -45,4 +45,32 @@ h3 {
   font-size: 12px;
   font-weight: 700;
 }
+
+
+@media screen and (min-width: 1200px) {
+
+.boite {
+  margin: 0 20px 0 0;
+}
+
+.imageavant {
+  margin-bottom: 100px;
+  border-radius: 10px;
+  width: 250px;
+  min-width: 250px;
+  height: 250px;
+  background-image: linear-gradient(rgba(0, 0, 0, 0),rgb(10, 10, 10, 0.8)),
+    url(../assets/choco.png);
+  background-size: cover;
+}
+
+h3 {
+  padding: 80% 0 0 5%;
+  color: white;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+}
+
 </style>

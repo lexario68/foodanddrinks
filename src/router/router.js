@@ -7,23 +7,23 @@ import PhoneRecette from "@/pages/PhoneRecette.vue"
 
 const routes = [
     {
-        path: "/",
         name: "PhoneAccueil",
+        path: "/",
         component: PhoneAccueil
     },
     {
-        path: "/phoneconnexion",
         name: "PhoneConnexion",
+        path: "/phoneconnexion",
         component: PhoneConnexion
     },
     {
-        path: "/phonemain",
         name: "PhoneMain",
+        path: "/phonemain",
         component: PhoneMain
     },
     {
-        path: "/phonerecette",
         name: "PhoneRecette",
+        path: "/phonerecette/:id",
         component: PhoneRecette
     },
 ]

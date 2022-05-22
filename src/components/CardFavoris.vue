@@ -1,8 +1,13 @@
 <template>
     <div class="card">
-      <div class="imageavant"></div>
+      <div class="imageavant" 
+      :style="{
+          background:
+            'linear-gradient(rgb(10, 10, 10, 0.8), rgba(0, 0, 0, 0)), url(' +
+            reciepe.attributes.Image.data.attributes.formats.medium.url,
+        }"></div>
       <div class="description">
-        <div>Smoothie bowl</div>
+         <div>{{ reciepe.attributes.Name }}</div>
         <div>
           Lorem ipsum dolor sit amet, volupti iure officia tenetur, similique
           exercitationem, modi, vel consequatur. Sequi facere eius saepe culpa
@@ -16,6 +21,9 @@
 export default {
   name: "CardFavoris",
   props: {
+     reciepe: {
+      type: Object,
+    },
     taille: {
       type: String,
       default: "40px",

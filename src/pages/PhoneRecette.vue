@@ -29,6 +29,7 @@
 </template>
 
 <script>
+import api from "@/plugins/axios";
 import PhotoProfile from "../components/PhotoProfile.vue";
 import CardCarouselle from "../components/CardCarouselle.vue";
 
@@ -38,10 +39,25 @@ export default {
     PhotoProfile,
     CardCarouselle,
   },
+
+  computed: {
+    currentItem() {
+      return this.$route.params.id;
+    },
+  },
+
   data() {
     return {
       isActive: true,
+      reciepes: [],
     };
+  },
+
+  mounted() {
+    api.get("reciepes/" + this.$route.params.id + "?populate=*").then((response) => {
+        this.reciepes = response.data.data;
+        console.log(this.reciepes);
+      });
   },
 };
 </script>

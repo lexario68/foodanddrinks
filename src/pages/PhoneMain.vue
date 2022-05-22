@@ -2,7 +2,17 @@
   <div id="fond">
     <div class="pad">
       <div id="HEADER">
+        <div>
+          <router-link class="cacher" to="/phonemain"
+            >Food & Drinks
+          </router-link>
+          <router-link class="cacher" to="/phonemain">Accueil </router-link>
+          <router-link class="cacher" to="/phonemain">Recette</router-link>
+          <router-link class="cacher" to="/phonemain">Favoris </router-link>
+        </div>
         <img src="../assets/LOGO.svg" alt="Logo de Food & Drink's" />
+        <div class="cacher titre">Food & Drink's</div>
+        <div class="cacher subtitre">Se régaler sans culpabiliser</div>
         <PhotoProfile :class="{ petit: isActive }" />
       </div>
       <div id="BONJOUR">Bonjour {{ nom }}</div>
@@ -10,7 +20,7 @@
       <div id="SEARCH">Tiramisu</div>
     </div>
     <div class="gauchepad">
-      <h2>En tendance</h2>
+      <h2 id="part">En tendance</h2>
       <div class="carouselle">
         <CardCarouselle
           v-for="reciepe in reciepes"
@@ -19,7 +29,10 @@
           :class="{ mainimage: isActive }"
         />
 
+        <!--On repete car il faut plus que 3 recettes pour que ca rend bien-->
+
         <CardCarouselle
+          class="cacher"
           v-for="reciepe in reciepes"
           :key="reciepe.id"
           :reciepe="reciepe"
@@ -30,16 +43,26 @@
 
     <div class="pad">
       <h2>Selon vos envis</h2>
-      <div class="carouselle">
+      <div class="carouselle" id="grille">
         <CardCategorie />
         <CardCategorie />
         <CardCategorie />
+        <CardCategorie class="cacher" />
+        <CardCategorie class="cacher" />
+        <CardCategorie class="cacher" />
+        <CardCategorie class="cacher" />
+        <CardCategorie class="cacher" />
+        <CardCategorie class="cacher" />
       </div>
-
-      <h2>Vos favoris</h2>
-      <div>
-        <CardFavoris />
-        <CardFavoris />
+      <div id="Degage">
+        <h2>Vos favoris</h2>
+        <div>
+          <CardFavoris
+            v-for="reciepe in reciepes"
+            :key="reciepe.id"
+            :reciepe="reciepe"
+          />
+        </div>
       </div>
     </div>
   </div>
@@ -84,6 +107,10 @@ export default {
 <style scoped>
 * {
   color: white;
+}
+
+.cacher {
+  display: none;
 }
 
 a {
@@ -147,5 +174,110 @@ h2 {
   display: flex;
   box-sizing: border-box;
   overflow: hidden;
+}
+
+@media screen and (min-width: 1200px) {
+  .pad,
+  .gauchepad {
+    padding: 0px;
+  }
+
+  .cacher {
+    display: inherit;
+  }
+
+  #HEADER {
+    position: relative;
+    box-sizing: border-box;
+    padding: 25px;
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    align-items: flex-start;
+    height: 500px;
+    background-image: linear-gradient(
+        90deg,
+        rgb(0, 0, 0) 0%,
+        rgba(0, 0, 0, 0) 100%
+      ),
+      url("../assets/back.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position-y: 60%;
+  }
+
+  #HEADER img {
+    position: absolute;
+    top: 40%;
+    left: 30%;
+    width: 150px;
+    height: auto;
+  }
+
+  #HEADER div:first-child {
+    display: flex;
+    width: 700px;
+    justify-content: space-around;
+    align-items: center;
+  }
+
+  #HEADER a:first-child {
+    font-weight: 700;
+    font-size: 25px;
+  }
+
+  #SEARCH {
+    position: absolute;
+    top: 25px;
+    right: 200px;
+    width: 35%;
+  }
+
+  #BONJOUR,
+  #SUB {
+    display: none;
+  }
+
+  .carouselle {
+    padding-left: 100px;
+  }
+
+  h2 {
+    font-size: 25px;
+    margin-bottom: 50px;
+    margin-top: 100px;
+    padding-left: 100px;
+  }
+
+  #part {
+    margin-bottom: 0px !important;
+  }
+
+  #grille {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: auto;
+    width: 85%;
+    margin: auto;
+  }
+
+  .titre {
+    position: absolute;
+    top: 45%;
+    left: 43%;
+    font-size: 50px;
+    font-weight: 700;
+  }
+  .subtitre {
+    position: absolute;
+    top: 60%;
+    left: 43%;
+    font-size: 30px;
+    font-weight: 700;
+  }
+
+  #Degage {
+    display: none;
+  }
 }
 </style>

@@ -2,11 +2,12 @@
   <div id="fond">
     <router-link to="/"
       ><img src="../assets/return.svg" alt="fleche retout" class="return"
-    /></router-link>
+    /><div class="cacher" style="color:white; padding:0 0 0 15px">Revenir en arrière</div></router-link>
     <div class="brand">
       <h1>Food & Drink's</h1>
       <img src="../assets/LOGO.svg" alt="Logo de Food & Drink's" />
     </div>
+     <div class="cacher blabla">Se régaler sans culpabiliser</div>
     <div id="interface">
       <h2>Se régaler sans culpabiliser</h2>
       <input
@@ -46,7 +47,9 @@ h2 {
   font-weight: 700;
   margin: 0px;
 }
-
+.cacher{
+  display: none;
+}
 h2 {
   margin-bottom: 50px;
   font-size: 20px;
@@ -147,4 +150,94 @@ hr {
   font-size: 12px;
   align-items: center;
 }
+
+
+
+@media screen and (min-width: 1200px){
+h1,
+h2 {
+  color: white;
+  font-weight: 700;
+  margin: 0px;
+}
+
+h2 {
+display: none;
+}
+
+#fond {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-image: linear-gradient(
+      0deg,
+      rgb(0, 0, 0) 0%,
+      rgba(0, 0, 0, 0) 100%
+    ),
+    url("../assets/back.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+
+.brand {
+  display: flex;
+  flex-direction: row-reverse;
+  align-items: center;
+  justify-content: center;
+  padding-top: 50px;
+}
+
+h1{
+  font-size: 90px;
+}
+
+.cacher{
+  display:inherit;
+}
+
+.blabla{
+   color:white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 40px;
+  font-weight: 700;
+  margin-left:150px;
+}
+
+.return {
+  margin: 50px 0 0 25px;
+}
+
+#RS{
+  width: 25%;
+  display:flex;
+  justify-content: space-between;
+}
+
+
+
+.orange {
+  background: #ec9631;
+  color: white;
+  padding: 20px 0 20px 20px;
+  width: 500px;
+}
+
+input {
+  padding: 20px 0 20px 20px;
+  width: 500px;
+  border-radius: 25px;
+  border: none;
+  font-weight: 500;
+  font-size: 12px;
+  background-color: #555555;
+}
+
+
+}
+
 </style>
