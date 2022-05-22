@@ -92,14 +92,14 @@ export default {
   data() {
     return {
       isActive: true,
-      reciepes: [],
+      reciepes: []
     };
   },
-  mounted() {
-    api.get("reciepes?populate=*").then((response) => {
-      this.reciepes = response.data.data;
-      console.log(this.reciepes);
-    });
+mounted () {
+        api.get('reciepes?populate=*').then((response) => {
+            this.reciepes = response.data.data
+            console.log(this.reciepes)
+        });
   },
 };
 </script>

@@ -1,5 +1,5 @@
 <template>
-  <router-link :to="'/phonerecette/' + reciepe.id">
+  <router-link :to="'/phonerecette/'+reciepe.id">
     <div class="boite">
       <div
         class="imageavant"

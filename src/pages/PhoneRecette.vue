@@ -40,26 +40,26 @@ export default {
     CardCarouselle,
   },
 
-  computed: {
-    currentItem() {
+ computed:{
+    currentItem (){
       return this.$route.params.id;
-    },
+    }
   },
 
   data() {
     return {
       isActive: true,
-      reciepes: [],
-    };
+      reciepes: []
+    }
   },
 
-  mounted() {
-    api.get("reciepes/" + this.$route.params.id + "?populate=*").then((response) => {
-        this.reciepes = response.data.data;
-        console.log(this.reciepes);
-      });
+  mounted () {
+        api.get('reciepes/'+this.$route.params.id+"?populate=*").then((response) => {
+            this.reciepes = response.data.data
+            console.log(this.reciepes)
+        });
   },
-};
+}
 </script>
 
 <style scoped>
