@@ -13,7 +13,8 @@
         <img src="../assets/LOGO.svg" alt="Logo de Food & Drink's" />
         <div class="cacher titre">Food & Drink's</div>
         <div class="cacher subtitre">Se régaler sans culpabiliser</div>
-        <PhotoProfile :class="{ petit: isActive }" />
+        <PhotoProfile class="degage" :class="{ petit: isActive }" />
+        <PhotoProfile class="cacher" :class="{ moyen: isActive }" />
       </div>
       <div id="BONJOUR">Bonjour {{ nom }}</div>
       <div id="SUB">Qu'allez vous cuisiner</div>

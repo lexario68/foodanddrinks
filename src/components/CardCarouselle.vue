@@ -48,7 +48,7 @@
 export default {
   props: {
     reciepe: {
-      type: Object,
+      type: Object
     },
   },
   name: "CardCarouselle",
